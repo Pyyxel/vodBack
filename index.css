@@ -621,8 +621,9 @@ FOOTER {
     width:30%;
     float:left;
     font-family:"Baloo Tammudu 2", Arial, Helvetica, sans-serif;
-    font-size:40px;
-    padding-top:15px;
+    font-size:20px;
+    
+    margin-top: -40px;
     padding-left:30px;
     font-weight:900;
     color:#FF7200;
@@ -682,10 +683,12 @@ transition: 0.2s ease;
 .menu-dada ul{
     float:right;
     list-style:none;
+    margin-top: -15px !important;
 
 }
 
 .menu-nav{
+    
     overflow:hidden;
    
 }
@@ -720,6 +723,8 @@ color:white;
 
 .lien-home {
     text-decoration: none;
+   
+    
     color:#FF7200;
 }
 

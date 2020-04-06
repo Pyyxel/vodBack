@@ -15,8 +15,15 @@
    if(isset($_SESSION['typeuser'])){
     if ($_SESSION['typeuser']==1){
       ?>
-  <!--
+    
 
+
+  <a href="../traitement/affichecinema.php">vers l'affichage de cinema</a>
+  <a href="../traitement/afficheacteur.php">vers l'affichage des acteurs</a>
+  <a href="../traitement/afficheproducteur.php">vers l'affichage des producteurs</a>
+  <a href="../traitement/afficherealisateur.php">vers l'affichage des realisateurs</a>
+
+  <!--
 film  !
 
  -->
@@ -330,6 +337,45 @@ film  !
     </fieldset>
   </form>
 </div>
+
+<div class="container">
+  <form id="contact" action="../traitement/changerdroit.php" method="post"> 
+    <h3><center>changer droit utilisateur</center></h3>
+    <select  name="iduser" tabindex="8" require >
+            <?php
+                include '../connectbdd/connectBDD.php'; 
+
+                $req = $bdd->prepare(" SELECT id_user,pseudo,nom,prenom FROM dbs296644.User");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+                  <option  value="<?= $donnees['id_user']; ?>"> Nom : <?= $donnees['nom']; ?> | prenom : <?= $donnees['prenom']."   Pseudo : ".$donnees['pseudo']; ?> </option>
+              <?php  }
+             ?>
+    </select>
+    
+    <select  name="idtype" tabindex="8" require >
+            <?php
+                include '../connectbdd/connectBDD.php'; 
+
+                $req = $bdd->prepare(" SELECT id_typeuser,droit FROM dbs296644.typeUser");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+
+                  <option  value="<?= $donnees['id_typeuser']; ?>"> droit a mettre a l'utilisateur : <?= $donnees['droit']; ?>  </option>
+              <?php  }
+             ?>
+    </select>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
+    </fieldset>
+  </form>
+</div>
+
+
+
+
                 <?php 
                     }else{
                       header('Location: ../index.php');

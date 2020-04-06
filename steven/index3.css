@@ -623,7 +623,7 @@ FOOTER {
     float:left;
     font-family:"Orbitron", Arial, Helvetica, sans-serif;
     font-size:40px;
-    padding-top:1px;
+    margin-top: -40px;
     padding-left:30px;
     font-weight:900;
     color:#DAF7A6;
@@ -683,6 +683,7 @@ transition: 0.2s ease;
 .menu-dada ul{
     float:right;
     list-style:none;
+    margin-top: -15px !important;
 
 }
 
