@@ -30,6 +30,7 @@
                 <td><?php echo $affichefilm['prenom']?></td>
                 <td><?php echo $affichefilm['datenaissance']?></td>
                 <td><?php echo $affichefilm['origine']?></td>
+                <td><a href="editeracteur.php?id=<?php echo $affichefilm['id_acteur'];?>">modifier</a><br><a href="suprimeracteur.php?id=<?php echo $affichefilm['id_acteur'];?>">suprimer</a>
             </tr>
             <?php
                 }
