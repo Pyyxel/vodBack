@@ -19,8 +19,47 @@ body {
   font-size: 12px;
   line-height: 30px;
   color: #777;
-  background: #4CAF50 ;
+  background: black ;
 }
+
+.flexadmin{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+.admin{
+  display: block;
+  background-color: orange;
+  margin: 3%;
+  color:white;
+  width: 90px;
+  box-shadow: orange 0px 0px 2px 2px;
+  text-decoration: none;
+}
+.acteurtab{ 
+  
+  color:orange;
+  font-size: 15px;
+  border-width:1px; 
+  border-style:solid; 
+  border-color:orange;
+  width: 80%;
+  text-align: center;
+}
+.ligne{
+  margin: 2%;
+  border-width:1px; 
+  border-style:solid; 
+  border-color:orange;
+  
+}
+.colone{
+  border-width:1px; 
+  border-style:solid; 
+  border-color:orange;
+  
+}
+
 
 .container {
   max-width: 600px;
@@ -39,7 +78,7 @@ body {
 }
 
 #contact {
-  background: #F9F9F9;
+  background: black;
   padding: 25px;
   margin: 150px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -101,7 +140,7 @@ fieldset {
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #4CAF50;
+  background: orange;
   color: #FFF;
   margin: 0 0 5px;
   padding: 10px;
@@ -109,7 +148,7 @@ fieldset {
 }
 
 #contact button[type="submit"]:hover {
-  background: #43A047;
+  background: orange;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
@@ -130,7 +169,7 @@ fieldset {
 }
 
 ::-webkit-input-placeholder {
-  color: #888;
+  color: orange;
 }
 
 :-moz-placeholder {

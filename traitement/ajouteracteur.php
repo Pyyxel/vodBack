@@ -34,7 +34,7 @@
 
 
     function retour(){
-        echo '<a href="../include/admin.php">retour</a>';
+        echo '<a href="afficheacteur.php">retour</a>';
     }
 
 

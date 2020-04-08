@@ -3,6 +3,7 @@
     $prenom=$_POST['prenom'];
     $daten=$_POST['datenaissance'];
     $origine=$_POST['origine'];
+    $image=$_POST['image'];
     $id=$_GET['id'];
     
     
@@ -15,6 +16,12 @@
         $req=$bdd->prepare("UPDATE dbs296644.Acteur SET prenom = ? WHERE id_acteur=$id");
         $req->execute([$prenom]);
    }
+
+    if(!empty($image)){
+        $req=$bdd->prepare("UPDATE dbs296644.Acteur SET image = ? WHERE id_acteur=$id");
+        $req->execute([$image]);
+    }
+
     if(!empty($daten)){
         $req=$bdd->prepare("UPDATE dbs296644.Acteur SET datenaissance = ? WHERE id_acteur=$id");
         $req->execute([$daten]);

@@ -17,12 +17,12 @@
       ?>
     
 
-
-  <a href="../traitement/affichecinema.php">vers l'affichage de cinema</a>
-  <a href="../traitement/afficheacteur.php">vers l'affichage des acteurs</a>
-  <a href="../traitement/afficheproducteur.php">vers l'affichage des producteurs</a>
-  <a href="../traitement/afficherealisateur.php">vers l'affichage des realisateurs</a>
-
+  <div class="flexadmin">
+    <a class="admin" href="../traitement/affichecinema.php">vers l'affichage de cinema</a>
+    <a class="admin" href="../traitement/afficheacteur.php">vers l'affichage des acteurs</a>
+    <a class="admin" href="../traitement/afficheproducteur.php">vers l'affichage des producteurs</a>
+    <a class="admin" href="../traitement/afficherealisateur.php">vers l'affichage des realisateurs</a>
+  </div>
   <!--
 film  !
 

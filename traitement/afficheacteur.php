@@ -3,39 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>Crud Cinema - Correction</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../include/css/style.css">
 
 </head>
 <body>
-    <h1>Acteur</h1>
-    <div>
-        <table>
-           
-            <tr>
-                <td>nom</td>
-                <td>prenom</td>
-                <td>date de naissance</td>
-                <td>origine</td>
-                
-            </tr>
-            <?php
-                include '../connectbdd/connectBDD.php';
-                $req=$bdd->prepare("SELECT * FROM dbs296644.Acteur");
-                $req->execute();
-                while($affichefilm=$req->fetch()){
-            ?>
-    
-            <tr>
-                <td><?php echo $affichefilm['nom']?></td>
-                <td><?php echo $affichefilm['prenom']?></td>
-                <td><?php echo $affichefilm['datenaissance']?></td>
-                <td><?php echo $affichefilm['origine']?></td>
-                <td><a href="editeracteur.php?id=<?php echo $affichefilm['id_acteur'];?>">modifier</a><br><a href="suprimeracteur.php?id=<?php echo $affichefilm['id_acteur'];?>">suprimer</a>
-            </tr>
-            <?php
-                }
-            ?>
-        </table>
+    <div class="afficheacteur"></div>
+        <h1>Acteur</h1>
+        <div>
+            <table class="acteurtab">
+            
+                <tr class="colone">
+                    <td class="ligne">nom</td>
+                    <td class="ligne">prenom</td>
+                    <td class="ligne">image</td>
+                    <td class="ligne">date de naissance</td>
+                    <td class="ligne">origine</td>
+                    
+                </tr>
+                <?php
+                    include '../connectbdd/connectBDD.php';
+                    $req=$bdd->prepare("SELECT * FROM dbs296644.Acteur");
+                    $req->execute();
+                    while($affichefilm=$req->fetch()){
+                ?>
+        
+                <tr class="colone">
+                    <td class="ligne"><?php echo $affichefilm['nom']?></td>
+                    <td class="ligne"><?php echo $affichefilm['prenom']?></td>
+                    <td class="ligne"><?php echo $affichefilm['image']?></td>
+                    <td class="ligne"><?php echo $affichefilm['datenaissance']?></td>
+                    <td class="ligne"><?php echo $affichefilm['origine']?></td>
+                    <td class="ligne"><a href="editeracteur.php?id=<?php echo $affichefilm['id_acteur'];?>">modifier</a><br><a href="suprimeracteur.php?id=<?php echo $affichefilm['id_acteur'];?>">suprimer</a></td>
+                </tr>
+                <?php
+                    }
+                ?>
+            </table>
+            <div class="flexadmin">
+                <a class="admin" href="formajoutacteur.php">ajouter un un acteur</a>
+                <a class="admin" href="../include/admin.php">retour au bouton</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
