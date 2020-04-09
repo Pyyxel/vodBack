@@ -39,6 +39,6 @@
 
 
     function retour(){
-        echo '<a href="../include/admin.php">retour</a>';
+        echo '<a href="affichecinema.php">retour</a>';
     }
 ?>

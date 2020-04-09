@@ -11,7 +11,7 @@
         $req=$bdd->prepare("UPDATE dbs296644.Realisateur SET nom = ? WHERE id_realisateur=$id");
         $req->execute([$nom]);
     }
-    if(!empty($penom)){
+    if(!empty($prenom)){
         $req=$bdd->prepare("UPDATE dbs296644.Realisateur SET prenom = ? WHERE id_realisateur=$id");
         $req->execute([$prenom]);
    }

@@ -36,6 +36,15 @@ body {
   box-shadow: orange 0px 0px 2px 2px;
   text-decoration: none;
 }
+.filmtab{
+  color:orange;
+  font-size: 15px;
+  border-width:1px; 
+  border-style:solid; 
+  border-color:orange;
+  text-align: center;
+  width: 100%;
+}
 .acteurtab{ 
   
   color:orange;

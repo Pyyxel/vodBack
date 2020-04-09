@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -7,6 +10,10 @@
 
 </head>
 <body>
+<?php 
+   if(isset($_SESSION['typeuser'])){
+    if ($_SESSION['typeuser']==1){
+      ?>
     <div class="afficheacteur"></div>
         <h1>Acteur</h1>
         <div>
@@ -40,11 +47,25 @@
                 ?>
             </table>
             <div class="flexadmin">
-                <a class="admin" href="formajoutacteur.php">ajouter un un acteur</a>
+                <a class="admin" href="formajoutacteur.php">ajouter un acteur</a>
                 <a class="admin" href="../include/admin.php">retour au bouton</a>
             </div>
         </div>
     </div>
+    <?php 
+                    }else{
+                      header('Location: ../index.php');
+                    }
+                  ?>
+                 
+             
+              
+
+                <?php }else{
+                  header('Location: ../index.php');
+                } ?>
+
+                      
 </body>
 </html>
 

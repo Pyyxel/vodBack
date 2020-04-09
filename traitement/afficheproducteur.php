@@ -1,21 +1,28 @@
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>Crud Cinema - Correction</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../include/css/style.css">
 
 </head>
 <body>
+<?php 
+    if(isset($_SESSION['typeuser'])){
+    if ($_SESSION['typeuser']==1){
+    ?>
     <h1>Producteur</h1>
     <div>
-        <table>
+        <table class="acteurtab">
            
-            <tr>
-                <td>nom</td>
-                <td>prenom</td>
-                <td>date de naissance</td>
-                <td>origine</td>
+            <tr class="colone">
+                <td class="ligne">nom</td>
+                <td class="ligne">prenom</td>
+                <td class="ligne">date de naissance</td>
+                <td class="ligne">origine</td>
                 
             </tr>
             <?php
@@ -25,18 +32,35 @@
                 while($affichefilm=$req->fetch()){
             ?>
     
-            <tr>
-                <td><?php echo $affichefilm['nom']?></td>
-                <td><?php echo $affichefilm['prenom']?></td>
-                <td><?php echo $affichefilm['datenaissance']?></td>
-                <td><?php echo $affichefilm['origine']?></td>
-                <td><a href="editproducteur.php?id=<?php echo $affichefilm['id_producteur']?>">Modifier</a><br><a href="suprimerproducteur.php?id=<?php echo $affichefilm['id_producteur']?>">Suprimer</a></td>
+            <tr class="colone">
+                <td class="ligne"><?php echo $affichefilm['nom']?></td>
+                <td class="ligne"><?php echo $affichefilm['prenom']?></td>
+                <td class="ligne"><?php echo $affichefilm['datenaissance']?></td>
+                <td class="ligne"><?php echo $affichefilm['origine']?></td>
+                <td class="ligne"><a href="editproducteur.php?id=<?php echo $affichefilm['id_producteur']?>">Modifier</a><br><a href="suprimerproducteur.php?id=<?php echo $affichefilm['id_producteur']?>">Suprimer</a></td>
             </tr>
             <?php
                 }
             ?>
         </table>
+        <div class="flexadmin">
+            <a class="admin" href="formajoutproducteur.php">ajouter un producteur</a>
+            <a class="admin" href="../include/admin.php">retour au bouton</a>
+        </div>
     </div>
+    <?php
+                }else{
+                      header('Location: ../index.php');
+                    }
+                  ?>
+                 
+             
+              
+
+                <?php }else{
+                  header('Location: ../index.php');
+                } ?>
+
 </body>
 </html>
 
