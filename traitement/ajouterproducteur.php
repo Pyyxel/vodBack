@@ -24,8 +24,7 @@
     }else{
         $req=$bdd->prepare("INSERT INTO dbs296644.Producteur SET nom = ?, prenom = ?, Image = ? ,datenaissance = ?,origine=?");
         $req->execute([$nom,$prenom,$img,$date,$origine]);
-        echo "Le producteur a bien été inséré";
-        retour();
+        header('Location: afficheproducteur.php');
     }
 
 

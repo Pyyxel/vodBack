@@ -7,27 +7,13 @@
     $duree=$_POST['duree'];
     
 
-    if(empty($titre)){
-        $bool=false;
-        echo "il y a une erreur lors de lajout du film";
-        retour();
-    }else if(empty($synopsis)){
-        echo "il y a une erreur lors de lajout du film";
-        retour();
-    }else if(empty($date)){
-        echo "il y a une erreur lors de lajout du film";
-        retour();
-    }else if(empty($note)){
-        echo "il y a une erreur lors de lajout du film";
-        retour();
-    }else if(empty($duree)){
+    if(empty($titre) && (empty($synopsis)) && (empty($date)) && (empty($note)) && (empty($duree))){
         echo "il y a une erreur lors de lajout du film";
         retour();
     }else{
         $req=$bdd->prepare("INSERT INTO dbs296644.Film SET titre = ?, synopsis = ?, note= ?, duree = ?, datesortie = ?");
         $req->execute([$titre,$synopsis,$note,$duree,$date]);
-        echo "insertion reussie";
-        retour();
+        header('Location: affichecinema.php');
     }
 
 

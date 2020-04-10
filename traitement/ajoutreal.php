@@ -24,8 +24,7 @@
     }else{
         $req=$bdd->prepare("INSERT INTO dbs296644.Realisateur SET nom = ?, prenom = ?, Image = ? ,datenaissance = ?,origine=?");
         $req->execute([$nom,$prenom,$img,$date,$origine]);
-        echo "Le realisateur a bien été inséré";
-        retour();
+        header('Location: afficherealisateur.php');
     }
 
 

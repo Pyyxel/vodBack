@@ -35,6 +35,8 @@ include '../connectbdd/connectBDD.php';
             </label>  
             <input type="date" id="dateSortie" name="datenaissance" placeholder="<?=$acteur['datenaissance']?>"><br>
 
+            <label for="synopsis">Image</label>
+            <input type="text" id="sujet" name="image"  placeholder="<?=$acteur['image']?>"></input><br>
 
             
             

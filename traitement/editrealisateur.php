@@ -26,7 +26,9 @@ include '../connectbdd/connectBDD.php';
             <label for="nom">prenom</label>
             <input type="text" id="prenom" name="prenom" placeholder="<?=$realisateur['prenom']?>"><br>
 
-            
+            <label for="nom">image</label>
+            <input type="text" id="prenom" name="image" placeholder="<?=$realisateur['image']?>"><br>
+
 
 
             <label for="dateNaissance">Date de naissance : 

@@ -23,6 +23,7 @@
             <tr class="colone">
                 <td class="ligne">nom</td>
                 <td class="ligne">prenom</td>
+                <td class="ligne">Image</td>
                 <td class="ligne">date de naissance</td>
                 <td class="ligne">origine</td>
 
@@ -37,11 +38,12 @@
             <tr class="colone">
                 <td class="ligne"><?php echo $affichefilm['nom']?></td>
                 <td class="ligne"><?php echo $affichefilm['prenom']?></td>
+                <td class="ligne"><img height="110px" width="80px" src="<?php echo $affichefilm['Image']?>"></td>
                 <td class="ligne"><?php echo $affichefilm['datenaissance']?></td>
                 <td class="ligne"><?php echo $affichefilm['origine']?></td>
                 <td class="ligne"><a
-                        href="editrealisateur.php?id=<?php echo $affichefilm['id_realisateur'];?>">Modifier</a><br><a
-                        href="suprimerrealisateur.php?id=<?php echo $affichefilm['id_realisateur'];?>">Suprimer</a></td>
+                href="editrealisateur.php?id=<?php echo $affichefilm['id_realisateur'];?>">Modifier</a><br><a
+                href="suprimerrealisateur.php?id=<?php echo $affichefilm['id_realisateur'];?>">Suprimer</a></td>
             </tr>
             <?php
                 }
@@ -53,42 +55,60 @@
         </div>
     </div>
 
-    <div class="container">
-        <form id="contact" action="../traitement/lierreal.php" method="post">
-            <h3>
-                <center>lier un realisateur a un film</center>
-            </h3>
-            <select name="idfilm" tabindex="8" require>
-                <?php
-                include '../connectbdd/connectBDD.php'; 
+    <h5>Realisateur->film<h5>
+      <div>
+      <table class="filmtab">
+        <tr class="colone">
+          <td class="ligne">Realisateur</td>
+          <td class="ligne">film</td>
+        </tr>
+        <?php 
+                     
+                      include '../connectbdd/connectBDD.php';
+                      $req=$bdd->prepare("SELECT * FROM dbs296644.Realisateur");
+                      $req->execute();
+                      while($afficherealisateur=$req->fetch()){
+                 
+                     ?>
+        <tr class="colone">
 
-                $req = $bdd->prepare(" SELECT id_film, titre FROM dbs296644.Film");
-                $req->execute();
+          <td class="ligne"><?php echo $afficherealisateur['nom']."  ".$afficherealisateur['prenom'];?></td>
+          <?php
+                        $idrealisateur=$afficherealisateur['id_realisateur'];
+                        $req2=$bdd->prepare("SELECT id_film FROM dbs296644.Realiser WHERE id_realisateur=$idrealisateur");
+                        $req2->execute();
+                        
+                    ?>
+          <td class="ligne">
 
-                while ( $donnees = $req->fetch() ){ ?>
 
-                <option value="<?= $donnees['id_film']; ?>"> Nom du realisateur : <?= $donnees['titre']; ?> | id du cinéma :
-                    <?= $donnees['id_film']; ?> </option>
-                <?php  }
-             ?>
-            </select>
-            <select name="idreal" tabindex="8" require>
-                <?php
-                $req2 = $bdd->prepare(" SELECT id_realisateur,nom,prenom FROM dbs296644.Realisateur");
-                $req2->execute();
 
-                while ( $donnees = $req2->fetch() ){ ?>
+            <?php
+                    while($realiser=$req2->fetch()){
+                          $idfilm=$realiser['id_film'];
+                          $req3=$bdd->prepare("SELECT titre,id_film FROM dbs296644.Film WHERE id_film=$idfilm");
+                          $req3->execute();
+                          while($film=$req3->fetch()){
+                          
+                           echo $film['titre']." / "; ?>   
 
-                <option value="<?= $donnees['id_realisateur']; ?>"> Nom du real : <?= $donnees['nom']; ?> | prenom du
-                    real : <?= $donnees['prenom']; ?> </option>
-                <?php  }
-             ?>
-            </select>
-            <fieldset>
-                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
-            </fieldset>
-        </form>
-    </div>
+            <?php
+                          }
+                        }
+
+                    ?>
+            
+          </td>
+          <td class="ligne"><a href="formajouterrealisateurfilm.php?&id=<?php echo $afficherealisateur['id_realisateur'];?>">ajouter un film</a><br><a
+            href="suprimerrealisateurfilm.php?id=<?php echo $afficherealisateur['id_realisateur']?>">Suprimer un film</a></td>
+
+        </tr>
+        <?php
+                        
+                      }
+                      ?>
+      </table>
+      </div>
     <?php
                 }else{
                       header('Location: ../index.php');

@@ -1,6 +1,7 @@
 <?php
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
+    $image=$_POST['image'];
     $daten=$_POST['datenaissance'];
     $origine=$_POST['origine'];
     $id=$_GET['id'];
@@ -17,6 +18,11 @@
         $req->execute([$prenom]);
        
    }
+   if(!empty($image)){
+    $req=$bdd->prepare("UPDATE dbs296644.Producteur SET image = ? WHERE id_producteur=$id");
+    $req->execute([$image]);
+   
+}
     if(!empty($daten)){
         $req=$bdd->prepare("UPDATE dbs296644.Producteur SET datenaissance = ? WHERE id_producteur=$id");
         $req->execute([$daten]);

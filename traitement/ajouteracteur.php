@@ -25,8 +25,7 @@
     }else{
         $req=$bdd->prepare("INSERT INTO dbs296644.Acteur SET nom = ?, prenom = ?, image = ? ,datenaissance = ?,origine=?");
         $req->execute([$nom,$prenom,$img,$date,$origine]);
-        echo "L acteur a bien été inséré";
-        retour();
+        header('Location: afficheacteur.php');
     }
 
 
