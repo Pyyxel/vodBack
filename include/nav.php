@@ -15,8 +15,7 @@
                                 echo '<li><a href="include/admin.php">admin</a></li>';
                             }
                     ?>
-                    <li><p><?php echo $_SESSION['username']; ?></p></li>
-                    <li><p><?php echo "est ".$_SESSION['typeuser'];?></li>
+                    <li><a href="user.php"> <?php echo $_SESSION['username']; ?></a></li>
                         
                     
                     <Li><a href="deconexion.php">Deconexion</a></Li>
@@ -82,13 +81,12 @@
                             if ($_SESSION['typeuser']==1){
                                 ?>
                                 <li><a href="include/admin.php">admin</a></li>
-                                <li><p><?php echo $_SESSION['username']; ?></p></li>
-                                
+                                <li><a href="user.php"> <?php echo $_SESSION['username']; ?></a></li>
+
                                 <li><a href="traitement/deconexion.php">Deconexion</a></li>
                             <?php
                             }else{ ?>
-                                <li><p><?php echo $_SESSION['username']; ?></p></li>
-                                <li><p><?php echo 'est '.$_SESSION['typeuser'];?></li>
+                                <li><a href="user.php"> <?php echo $_SESSION['username']; ?></a></li>
                                 <li><a href="traitement/deconexion.php">Deconexion</a></li>
                             <?php
                             }
